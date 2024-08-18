@@ -23,7 +23,7 @@ Resources:
         LambdaPrueba:
           Type: Api
           Properties:
-            Path: /user/prueba
+            Path: /user/gonzalo
             Method: get
 
 Outputs:

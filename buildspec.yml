@@ -8,7 +8,9 @@ phases:
       - npm install
       - pip install --upgrade aws-sam-cli
       - export PATH=$PATH:/tmp/.local/bin
-      - pip show aws-sam-cli  # Verificar la instalación de SAM CLI
+      - pip install --upgrade aws-sam-cli
+      - pip install --upgrade aws-sam-cli --no-warn-script-location
+      - sam --version
 
   pre_build:
     commands:
