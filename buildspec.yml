@@ -7,6 +7,7 @@ phases:
     commands:
       - npm install  # Install Node.js dependencies (if applicable)
       - pip install --upgrade aws-sam-cli  # Upgrade the AWS SAM CLI
+      - export PATH=$PATH:/tmp/.local/bin
 
   pre_build:
     commands:
