@@ -20,9 +20,9 @@ phases:
   post_build:
     commands:
       - echo "Packaging SAM Template"
-      - sam package --template-file template.yaml --output-template-file packaged.yaml --s3-bucket 19254
+      - sam package --template-file template.yaml --output-template-file packaged.yaml --s3-bucket 19254 
       - echo "Deploying CloudFormation Stack"
-      - aws cloudformation deploy --template-file packaged.yaml --stack-name stack-prueba --capabilities CAPABILITY_NAMED_IAM --region us-east-2
+      - aws cloudformation deploy --template-file packaged.yaml --stack-name probandop--capabilities CAPABILITY_NAMED_IAM --region us-east-2
       - echo "Deploying Microfront 1"
       - aws s3 sync ./front/microfront1 s3://mfbucket1 --delete
       - echo "Deploying Microfront 2"
