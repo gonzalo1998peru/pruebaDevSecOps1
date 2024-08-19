@@ -60,13 +60,13 @@ Resources:
   MicrofrontBucket1Policy:
     Type: AWS::S3::BucketPolicy
     Properties:
-      Bucket: !Ref Microfront 1
+      Bucket: !Ref MicrofrontBucket1
       PolicyDocument:
-        Statement:
-          - Action: "s3:GetObject"
-            Effect: Allow
-            Resource: !Sub "arn:aws:s3:::s3-mf-microfront1/*"
-            Principal: "*"
+       Statement:
+        - Action: "s3:GetObject"
+          Effect: Allow
+          Resource: !Sub "arn:aws:s3:::mfbucket1/*"
+          Principal: "*"
 
   MicrofrontBucket2:
     Type: AWS::S3::Bucket
@@ -96,18 +96,16 @@ Resources:
         RestrictPublicBuckets: false
       WebsiteConfiguration:
         IndexDocument: index.html
-
   MicrofrontBucket2Policy:
     Type: AWS::S3::BucketPolicy
     Properties:
-      Bucket: !Ref  Microfront 2
+      Bucket: !Ref MicrofrontBucket2
       PolicyDocument:
-        Statement:
-          - Action: "s3:GetObject"
-            Effect: Allow
-            Resource: !Sub "arn:aws:s3:::s3-mf-microfront2/*"
-            Principal: "*"
-
+       Statement:
+        - Action: "s3:GetObject"
+          Effect: Allow
+          Resource: !Sub "arn:aws:s3:::mfbucket2/*"
+          Principal: "*"
 Outputs:
   # Output for API Gateway URL
   ApiGatewayUrl:
