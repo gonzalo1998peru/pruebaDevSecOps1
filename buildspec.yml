@@ -7,10 +7,7 @@ phases:
     commands:
       - npm install
       - pip install --upgrade aws-sam-cli
-      - export PATH=$PATH:/tmp/.local/bin
-      - pip install --upgrade aws-sam-cli
-      - pip install --upgrade aws-sam-cli --no-warn-script-location
-      - sam --version
+      - pip show aws-sam-cli  # Verificar la instalación de SAM CLI
 
   pre_build:
     commands:
@@ -21,7 +18,7 @@ phases:
 
   post_build:
     commands:
-      - sam package --template-file template.yaml --output-template-file packaged.yaml --s3-bucket 1924-1
+      - sam package --template-file template.yaml --output-template-file packaged.yaml --s3-bucket prueba22222 --debug
       - aws cloudformation deploy --template-file packaged.yaml --stack-name stack-prueba --capabilities CAPABILITY_NAMED_IAM --region us-east-2
       - echo "Deploying Microfront 1"
       - aws s3 sync ./front/microfront1 s3://s3-mf-microfront1 --delete
