@@ -60,7 +60,7 @@ Resources:
   MicrofrontBucket1Policy:
     Type: AWS::S3::BucketPolicy
     Properties:
-      Bucket: !Ref mfbucket1
+      Bucket: !Ref Microfront 1
       PolicyDocument:
         Statement:
           - Action: "s3:GetObject"
@@ -100,7 +100,7 @@ Resources:
   MicrofrontBucket2Policy:
     Type: AWS::S3::BucketPolicy
     Properties:
-      Bucket: !Ref mfbucket2
+      Bucket: !Ref  Microfront 2
       PolicyDocument:
         Statement:
           - Action: "s3:GetObject"
