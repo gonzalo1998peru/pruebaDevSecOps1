@@ -11,6 +11,7 @@ phases:
 
   pre_build:
     commands:
+      - echo "Pre-Build Phase"
 
   build:
     commands:
@@ -18,7 +19,9 @@ phases:
 
   post_build:
     commands:
-      - sam package --template-file template.yaml --output-template-file packaged.yaml --s3-bucket 19254 --debug
+      - echo "Packaging SAM Template"
+      - sam package --template-file template.yaml --output-template-file packaged.yaml --s3-bucket my-temporary-bucket --debug
+      - echo "Deploying CloudFormation Stack"
       - aws cloudformation deploy --template-file packaged.yaml --stack-name stack-prueba --capabilities CAPABILITY_NAMED_IAM --region us-east-2
       - echo "Deploying Microfront 1"
       - aws s3 sync ./front/microfront1 s3://mfbucket1 --delete
